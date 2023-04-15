@@ -37,4 +37,8 @@ mutation { createPost(title: "Hello", author_id: 1) { id title author_id } }
 - Ariadne (ASGI) предоставляет GraphQL Playground на `/graphql` (GET) и поддерживает WebSocket.
 
 Roadmap
-- См. `ROADMAP.md` для плана развития и улучшений (авторизация, БД, тесты, CI, подписки, логирование, докер и др.).
+- См. `ROADMAP.md` (RU) и `ROADMAP.en.md` (EN) для плана развития и улучшений.
+
+Язык
+- Roadmap: RU (`ROADMAP.md`) / EN (`ROADMAP.en.md`).
+- Private Usage: RU (`PRIVATE_USAGE.txt`) — локальный файл, игнорируется Git.
