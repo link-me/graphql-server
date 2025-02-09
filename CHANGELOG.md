@@ -1,0 +1,12 @@
+﻿# Changelog
+
+- 2025-02-12: Improve performance
+- 2025-02-16: Enhance logging
+- 2025-02-19: Update docs
+- 2025-02-27: Improve performance
+- 2025-03-08: Add tests
+- 2025-03-09: Update dependencies
+- 2025-03-18: Setup CI
+- 2025-03-29: Update dependencies
+- 2025-04-03: Update dependencies
+- 2025-04-06: Update docs
