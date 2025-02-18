@@ -5,3 +5,4 @@
 // Setup CI
 // Update dependencies
 // Update docs
+// Fix auth bug
