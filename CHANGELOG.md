@@ -11,3 +11,4 @@
 - 2025-04-03: Update dependencies
 - 2025-04-06: Update docs
 - 2025-02-18: Fix auth bug
+- 2025-02-19: Add tests
