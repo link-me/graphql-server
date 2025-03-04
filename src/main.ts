@@ -7,3 +7,4 @@
 // Update docs
 // Fix auth bug
 // Add tests
+// Update dependencies
