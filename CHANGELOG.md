@@ -17,3 +17,4 @@
 - 2025-03-12: Add tests
 - 2025-03-21: Update docs
 - 2025-03-24: Code cleanup
+- 2025-03-28: Refactor module
