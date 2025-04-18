@@ -19,3 +19,4 @@
 - 2025-03-24: Code cleanup
 - 2025-03-28: Refactor module
 - 2025-04-15: Update docs
+- 2025-04-18: Add feature
