@@ -20,3 +20,4 @@
 - 2025-03-28: Refactor module
 - 2025-04-15: Update docs
 - 2025-04-18: Add feature
+- 2025-04-22: Add feature
