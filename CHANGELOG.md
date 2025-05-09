@@ -24,3 +24,4 @@
 - 2025-04-23: Update docs
 - 2025-05-04: Add feature
 - 2025-05-07: Update dependencies
+- 2025-05-09: Add tests
