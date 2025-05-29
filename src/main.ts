@@ -18,3 +18,4 @@
 // Add feature
 // Add tests
 // Update docs
+// Fix auth bug
