@@ -28,3 +28,4 @@
 - 2025-05-16: Add tests
 - 2025-05-19: Update docs
 - 2025-05-29: Fix auth bug
+- 2025-06-19: Fix auth bug
