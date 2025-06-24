@@ -30,3 +30,4 @@
 - 2025-05-29: Fix auth bug
 - 2025-06-19: Fix auth bug
 - 2025-06-22: Setup CI
+- 2025-06-24: Update docs
