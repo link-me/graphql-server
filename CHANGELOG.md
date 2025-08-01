@@ -36,3 +36,4 @@
 - 2025-07-15: Enhance logging
 - 2025-07-25: Code cleanup
 - 2025-07-29: Refactor module
+- 2025-08-01: Update docs
