@@ -39,3 +39,4 @@
 - 2025-08-01: Update docs
 - 2025-08-07: Update dependencies
 - 2025-08-09: Update dependencies
+- 2025-09-01: Add tests
