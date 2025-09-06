@@ -26,3 +26,4 @@
 // Refactor module
 // Update dependencies
 // Add tests
+// Setup CI
