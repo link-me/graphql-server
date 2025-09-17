@@ -42,3 +42,4 @@
 - 2025-09-01: Add tests
 - 2025-09-06: Setup CI
 - 2025-09-13: Refactor module
+- 2025-09-17: Enhance logging
