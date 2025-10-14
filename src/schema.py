@@ -1,22 +1,37 @@
 import typing as t
-import strawberry
+from ariadne import QueryType, MutationType, make_executable_schema, gql
 
 
-@strawberry.type
-class User:
-    id: int
-    name: str
+type_defs = gql(
+    """
+    type User {
+      id: Int!
+      name: String!
+    }
+
+    type Post {
+      id: Int!
+      title: String!
+      author_id: Int!
+    }
+
+    type Query {
+      users: [User!]!
+      user(id: Int!): User
+      posts: [Post!]!
+      postsByAuthor(author_id: Int!): [Post!]!
+    }
+
+    type Mutation {
+      createUser(name: String!): User!
+      createPost(title: String!, author_id: Int!): Post!
+    }
+    """
+)
 
 
-@strawberry.type
-class Post:
-    id: int
-    title: str
-    author_id: int
-
-
-USERS: t.Dict[int, User] = {}
-POSTS: t.Dict[int, Post] = {}
+USERS: t.Dict[int, t.Dict[str, t.Any]] = {}
+POSTS: t.Dict[int, t.Dict[str, t.Any]] = {}
 _uid = 0
 _pid = 0
 
@@ -33,42 +48,46 @@ def _next_post_id() -> int:
     return _pid
 
 
-@strawberry.type
-class Query:
-    @strawberry.field
-    def users(self) -> t.List[User]:
-        return list(USERS.values())
-
-    @strawberry.field
-    def user(self, id: int) -> t.Optional[User]:
-        return USERS.get(id)
-
-    @strawberry.field
-    def posts(self) -> t.List[Post]:
-        return list(POSTS.values())
-
-    @strawberry.field
-    def postsByAuthor(self, author_id: int) -> t.List[Post]:
-        return [p for p in POSTS.values() if p.author_id == author_id]
+query = QueryType()
+mutation = MutationType()
 
 
-@strawberry.type
-class Mutation:
-    @strawberry.mutation
-    def createUser(self, name: str) -> User:
-        uid = _next_user_id()
-        user = User(id=uid, name=name)
-        USERS[uid] = user
-        return user
-
-    @strawberry.mutation
-    def createPost(self, title: str, author_id: int) -> Post:
-        if author_id not in USERS:
-            raise ValueError("author not found")
-        pid = _next_post_id()
-        post = Post(id=pid, title=title, author_id=author_id)
-        POSTS[pid] = post
-        return post
+@query.field("users")
+def resolve_users(*_) -> t.List[t.Dict[str, t.Any]]:
+    return list(USERS.values())
 
 
-schema = strawberry.Schema(query=Query, mutation=Mutation)
+@query.field("user")
+def resolve_user(*_, id: int) -> t.Optional[t.Dict[str, t.Any]]:
+    return USERS.get(id)
+
+
+@query.field("posts")
+def resolve_posts(*_) -> t.List[t.Dict[str, t.Any]]:
+    return list(POSTS.values())
+
+
+@query.field("postsByAuthor")
+def resolve_posts_by_author(*_, author_id: int) -> t.List[t.Dict[str, t.Any]]:
+    return [p for p in POSTS.values() if p["author_id"] == author_id]
+
+
+@mutation.field("createUser")
+def resolve_create_user(*_, name: str) -> t.Dict[str, t.Any]:
+    uid = _next_user_id()
+    user = {"id": uid, "name": name}
+    USERS[uid] = user
+    return user
+
+
+@mutation.field("createPost")
+def resolve_create_post(*_, title: str, author_id: int) -> t.Dict[str, t.Any]:
+    if author_id not in USERS:
+        raise ValueError("author not found")
+    pid = _next_post_id()
+    post = {"id": pid, "title": title, "author_id": author_id}
+    POSTS[pid] = post
+    return post
+
+
+schema = make_executable_schema(type_defs, [query, mutation])
