@@ -1,6 +1,6 @@
 # GraphQL Server
 
-Python FastAPI + Strawberry GraphQL (вместо Node, т.к. Node недоступен в среде).
+Python FastAPI + Ariadne GraphQL (вместо Node, т.к. Node недоступен в среде).
 
 Возможности
 - Типы `User`, `Post`; запросы `users`, `user(id)`, `posts`, `postsByAuthor(author_id)`.
@@ -11,8 +11,8 @@ Python FastAPI + Strawberry GraphQL (вместо Node, т.к. Node недост
 1. Создать окружение и установить зависимости:
    - `python -m venv .venv && .venv\Scripts\activate`
    - `pip install -r requirements.txt`
-2. Запуск сервера: `uvicorn src.app:app --reload --port 8002`
-3. Открыть GraphQL IDE: `http://127.0.0.1:8002/graphql`
+2. Запуск сервера: `uvicorn src.app:app --reload --host 127.0.0.1 --port 8012`
+3. Открыть GraphQL IDE: `http://127.0.0.1:8012/graphql`
 
 Примеры запросов
 - Создать пользователя:
@@ -34,4 +34,4 @@ mutation { createPost(title: "Hello", author_id: 1) { id title author_id } }
 
 Заметки
 - В продакшне заменить InMemory на БД; добавить авторизацию и расписать схемы.
-- Strawberry даёт удобный IDE на `/graphql` для тестирования.
+- Ariadne (ASGI) предоставляет GraphQL Playground на `/graphql` (GET) и поддерживает WebSocket.
