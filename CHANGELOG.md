@@ -1,5 +1,6 @@
-﻿# Changelog
+# Changelog
 
+- 2025-10-16: Switch to Ariadne GraphQL from Strawberry; fix Pydantic/Python 3.13 compatibility; update docs
 - 2025-02-12: Improve performance
 - 2025-02-16: Enhance logging
 - 2025-02-19: Update docs
