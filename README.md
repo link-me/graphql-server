@@ -35,3 +35,6 @@ mutation { createPost(title: "Hello", author_id: 1) { id title author_id } }
 Заметки
 - В продакшне заменить InMemory на БД; добавить авторизацию и расписать схемы.
 - Ariadne (ASGI) предоставляет GraphQL Playground на `/graphql` (GET) и поддерживает WebSocket.
+
+Roadmap
+- См. `ROADMAP.md` для плана развития и улучшений (авторизация, БД, тесты, CI, подписки, логирование, докер и др.).
